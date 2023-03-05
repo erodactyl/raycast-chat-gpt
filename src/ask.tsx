@@ -1,4 +1,4 @@
-import { Action, ActionPanel, Color, Icon, List } from "@raycast/api";
+import { Action, ActionPanel, Color, Icon, List, showToast, Toast } from "@raycast/api";
 import { useEffect, useState } from "react";
 import { useConversation } from "./utils/useConversation";
 
@@ -13,9 +13,20 @@ export default function Command() {
     }
   }, [messages.length]);
 
-  const handleQuestion = () => {
-    sendMessage(question);
-    setQuestion("");
+  const handleQuestion = async () => {
+    if (loading) {
+      return;
+    }
+    const toast = await showToast(Toast.Style.Animated, "Loading...");
+    try {
+      await sendMessage(question);
+      toast.style = Toast.Style.Success;
+      toast.title = "Success";
+      setQuestion("");
+    } catch (e) {
+      toast.style = Toast.Style.Failure;
+      toast.title = "Something went wrong";
+    }
   };
 
   return (
