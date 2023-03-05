@@ -14,7 +14,7 @@
   "commands": [
     {
       "name": "ask",
-      "title": "Start ChatGPT chat session.",
+      "title": "Start ChatGPT Chat Session.",
       "description": "Start a chat session with ChatGPT.",
       "mode": "view"
     }
