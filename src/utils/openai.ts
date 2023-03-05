@@ -11,7 +11,7 @@ export type MessageWithId = ChatCompletionRequestMessage & { id: string };
 const CONTEXT: MessageWithId = {
   role: "system",
   content:
-    "The following is a conversation with an AI chatbot called Fragen. The chatbot is a Raycast extention and helps users connect to ChatGPT from their local machines",
+    "The following is a conversation with an AI chatbot called Raycast ChatGPT. The chatbot is a Raycast extention and helps users connect to ChatGPT from their local machines",
   id: "0",
 };
 

@@ -38,7 +38,7 @@ export default function Command() {
           <List.Item
             key={m.id}
             id={m.id}
-            title={m.role === "user" ? "You" : "Fragen"}
+            title={m.role === "user" ? "You" : "AI"}
             icon={
               m.role === "user"
                 ? { source: Icon.QuestionMark, tintColor: Color.Orange }
