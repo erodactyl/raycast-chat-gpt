@@ -1,15 +1,15 @@
 {
   "$schema": "https://www.raycast.com/schemas/extension.json",
-  "name": "ChatGPT - AI at Your Fingertips",
+  "name": "openai-chatgpt",
   "title": "ChatGPT",
   "description": "Use ChatGPT directly from Raycast.",
-  "icon": "command-icon.png",
+  "icon": "chatgpt-logo.png",
   "author": "erodactyl",
   "license": "MIT",
   "commands": [
     {
-      "name": "ChatGPT",
-      "title": "ChatGPT",
+      "name": "ask",
+      "title": "Start ChatGPT chat session.",
       "description": "Start a chat session with ChatGPT.",
       "mode": "view"
     }
