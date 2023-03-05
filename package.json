@@ -6,6 +6,11 @@
   "icon": "chatgpt-logo.png",
   "author": "erodactyl",
   "license": "MIT",
+  "categories": [
+    "Productivity",
+    "Fun",
+    "Web"
+  ],
   "commands": [
     {
       "name": "ask",

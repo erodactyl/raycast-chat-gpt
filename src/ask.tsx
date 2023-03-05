@@ -19,22 +19,28 @@ export default function Command() {
   };
 
   return (
-    <>
-      <List
-        filtering={false}
-        selectedItemId={selectedItemId}
-        searchText={question}
-        onSearchTextChange={setQuestion}
-        isLoading={loading}
-        searchBarPlaceholder="Ask your question..."
-        isShowingDetail
-        actions={
-          <ActionPanel>
-            <Action.SubmitForm title="Ask" onSubmit={handleQuestion} icon={Icon.Envelope} />
-          </ActionPanel>
-        }
-      >
-        {messages.map((m) => (
+    <List
+      filtering={false}
+      selectedItemId={selectedItemId}
+      searchText={question}
+      onSearchTextChange={setQuestion}
+      isLoading={loading}
+      searchBarPlaceholder="Ask your question..."
+      isShowingDetail={selectedItemId !== undefined}
+      actions={
+        <ActionPanel>
+          <Action.SubmitForm title="Ask" onSubmit={handleQuestion} icon={Icon.Envelope} />
+        </ActionPanel>
+      }
+    >
+      {messages.length === 0 ? (
+        <List.EmptyView
+          icon={{ source: Icon.QuestionMarkCircle, tintColor: Color.Orange }}
+          title="Ask your first question to get started!"
+          description="Type your question in the search bar and press enter to send it. It'll start a new ChatGPT session. Continue asking questions - the AI will remember the context!"
+        />
+      ) : (
+        messages.map((m) => (
           <List.Item
             key={m.id}
             id={m.id}
@@ -52,8 +58,8 @@ export default function Command() {
             }
             detail={<List.Item.Detail markdown={m.content} />}
           />
-        ))}
-      </List>
-    </>
+        ))
+      )}
+    </List>
   );
 }
